@@ -5,7 +5,10 @@
  */
 package Vista;
 
+//import Controlador.Controlador_FRM_MantenimientoEstudiantes;
+
 import Controlador.Controlador_FRM_MantenimientoEstudiantes;
+
 
 /**
  *
@@ -66,8 +69,6 @@ public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gUI_Botones1 = new Vista.GUI_Botones();
-        fRM_MantenimientoEstudiantes1 = new Vista.FRM_MantenimientoEstudiantes();
         jl_Cedula = new javax.swing.JLabel();
         jl_NombreCompleto = new javax.swing.JLabel();
         jl_Direccion = new javax.swing.JLabel();
@@ -149,8 +150,6 @@ private void btn_ConsultaRapida(java.awt.event.KeyEvent evt) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_ConsultaRapida;
-    private Vista.FRM_MantenimientoEstudiantes fRM_MantenimientoEstudiantes1;
-    private Vista.GUI_Botones gUI_Botones1;
     private javax.swing.JLabel jl_Cedula;
     private javax.swing.JLabel jl_Direccion;
     private javax.swing.JLabel jl_NombreCompleto;
