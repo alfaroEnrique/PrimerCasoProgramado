@@ -9,6 +9,7 @@ import Modelo.ArchivoMatricula;
 import Modelo.MetodosCursos;
 import Modelo.MetodosEstudiantes;
 import Modelo.MetodosMatricula;
+import Vista.FRM_FuenteInformacion;
 import Vista.FRM_MantenimientoCursos;
 import Vista.FRM_MantenimientoEstudiantes;
 import Vista.FRM_Matricula;
@@ -25,9 +26,11 @@ public class Controlador_FRM_Matricula implements ActionListener{
     MetodosEstudiantes metodosEstudiantes;
     MetodosMatricula metodosMatricula;
     FRM_Matricula frm_Matricula;
+    FRM_FuenteInformacion fuenteInfo;
     boolean encontroEstudiante=false;
     boolean encontroCurso=false;
     ArchivoMatricula archivo;
+    
     
    
     public Controlador_FRM_Matricula(FRM_MantenimientoEstudiantes mantenimientoEstudiantes,FRM_MantenimientoCursos mantenimientoCursos,FRM_Matricula frm_Matricula)
@@ -37,6 +40,8 @@ public class Controlador_FRM_Matricula implements ActionListener{
         this.frm_Matricula=frm_Matricula;
         metodosMatricula=new MetodosMatricula();
         archivo=new ArchivoMatricula();
+        fuenteInfo=new FRM_FuenteInformacion();
+        fuenteInfo.setVisible(true);
         frm_Matricula.numeroCodigo(metodosMatricula.devolverCodigo());
         
         if(archivo.cargarArchivoMatricula()){
