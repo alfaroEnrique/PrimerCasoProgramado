@@ -22,13 +22,13 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     FRM_MantenimientoLogin Login;
 public int eleccion=0;
     ArchivoUsuario archivo;
+    
    
     public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo)
     {
        this.fuenteInfo=fuenteInfo;
-       this.menu=menu;
        Login=new FRM_MantenimientoLogin();
-       
+       //visible();
     }
     public void actionPerformed(ActionEvent e)
     {
@@ -38,12 +38,12 @@ public int eleccion=0;
             Login.setVisible(true);
             if(this.fuenteInfo.archivosPlanosSeleccionados())
             {
-                if(archivo.cargarArchivoUsuario())
-                {
+             //   if(devolverUsuario())
+             //   {
                     Login.setVisible(true);
                     eleccion=1;
                     System.out.println("archivoPlanos");
-                }
+              //  }
             }
             if(this.fuenteInfo.basesDeDatosSeleccionados())
             {
@@ -76,5 +76,21 @@ public int eleccion=0;
    public int devolverEleccion()
    {
        return eleccion;
+   }
+   public boolean devolverUsuario()
+   {
+       boolean usuario=false;
+       for(int contador=0;contador==archivo.devolverInformacionDeUsuario().size();contador++)
+       {
+           if (contador>0)
+           {
+               usuario=true;
+           }
+           else
+           {
+               usuario=false;
+           }
+       }
+       return usuario;
    }
 }

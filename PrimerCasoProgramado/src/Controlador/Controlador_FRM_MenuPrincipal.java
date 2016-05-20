@@ -11,6 +11,7 @@ import Vista.FRM_MantenimientoEstudiantes;
 import Vista.FRM_MantenimientoLogin;
 import Vista.FRM_MantenimientoUsuario;
 import Vista.FRM_Matricula;
+import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,6 +27,7 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     FRM_MantenimientoUsuario usurio;
     FRM_FuenteInformacion fuenteInfo;
     FRM_MantenimientoLogin Login;
+    FRM_MenuPrincipal menu;
     
     
     public Controlador_FRM_MenuPrincipal()
@@ -34,13 +36,12 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         mantenimientoCursos=new FRM_MantenimientoCursos();
         matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
         usurio= new FRM_MantenimientoUsuario();
-        fuenteInfo= new FRM_FuenteInformacion();
+        fuenteInfo= new FRM_FuenteInformacion(this);
         Login=new FRM_MantenimientoLogin();
-        fuenteInfo.setVisible(true);
-        
+        //visible();
+        //fuenteInfo.setVisible(true);
         
     }
-    
     
     public void actionPerformed(ActionEvent e)
     {

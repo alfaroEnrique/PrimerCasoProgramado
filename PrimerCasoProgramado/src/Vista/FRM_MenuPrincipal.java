@@ -34,7 +34,19 @@ public class FRM_MenuPrincipal extends javax.swing.JFrame {
         this.jm_Matricula.addActionListener(controlador_FRM_MenuPrincipal);
         this.jm_Usuario.addActionListener(controlador_FRM_MenuPrincipal);
     }
-
+public boolean devolverVisible()
+{
+    boolean visible=false;
+    if(this.isVisible())
+    {
+        visible=true;
+    }
+    else
+    {
+        visible=false;
+    }
+    return visible;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
