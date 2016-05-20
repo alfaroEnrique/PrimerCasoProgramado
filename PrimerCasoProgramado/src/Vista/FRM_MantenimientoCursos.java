@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.Controlador_FRM_MantenimientoCursos;
 import Modelo.ArchivoCursos;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +39,10 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     {
         this.gUI_InformacionCursos1.mostrarInformacion(arreglo);
     }
-    
+    public void mostrarMensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
     public void estadoInicial()
     {
         this.gUI_Botones1.estadoInicial();

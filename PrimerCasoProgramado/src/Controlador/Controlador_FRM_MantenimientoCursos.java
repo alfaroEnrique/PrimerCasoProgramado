@@ -20,6 +20,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     FRM_MantenimientoCursos frm_MantenimientoCursos;
     public MetodosCursos metodos;
     ArchivoCursos archivo;
+      Controlador_FRM_FuenteInformacion fuente;
     public Controlador_FRM_MantenimientoCursos(FRM_MantenimientoCursos frm_MantenimientoCursos)
     {
         this.frm_MantenimientoCursos= frm_MantenimientoCursos;
@@ -40,13 +41,18 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     {
         if(e.getActionCommand().equals("Agregar"))
         {
+            if(this.fuente.devolverEleccion()==1)
+            {
             metodos.agregarCurso(frm_MantenimientoCursos.devolverInformacion());
             metodos.mensaje("El curso ha sido registrado con éxito");
             frm_MantenimientoCursos.limpiarCampos();
             frm_MantenimientoCursos.estadoInicial();
+            }
         }
         if(e.getActionCommand().equals("Consultar"))
         {
+            if(this.fuente.devolverEleccion()==1)
+            {
             if(metodos.consultarCurso(frm_MantenimientoCursos.devolverSigla()))
             {
                 frm_MantenimientoCursos.mostrarInformacion(metodos.getArregloInformacion());
@@ -58,19 +64,26 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
                 metodos.mensaje("No se encontro el curso");
                 frm_MantenimientoCursos.habilitarAgregar();
             }
+            }
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
+            if(this.fuente.devolverEleccion()==1)
+            {
             metodos.eliminarCurso(frm_MantenimientoCursos.devolverInformacion());
             metodos.mensaje("El curso ha sido eliminado con éxito");
             frm_MantenimientoCursos.posicionInicial();
+            }
         }
         if(e.getActionCommand().equals("Modificar"))
         {
+            if(this.fuente.devolverEleccion()==1)
+            {
            metodos.modificarCurso(frm_MantenimientoCursos.devolverInformacion());
            metodos.mensaje("Los datos han sido modificados exitosamente");
            frm_MantenimientoCursos.limpiarCampos();
            frm_MantenimientoCursos.deshabilitarAgregar(); 
+            }
         }
     }
     public void guardarArchivos()

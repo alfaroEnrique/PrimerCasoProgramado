@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.Controlador_FRM_MantenimientoEstudiantes;
 import Modelo.ArchivoEstudiantes;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,6 +58,10 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
     {
       this.gUI_Botones1.habilitarAgregar();
       this.gUI_InformacionEstudiantes1.habilitarEspacios();
+    }
+    public void mostrarMensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null, mensaje);
     }
     public void habilirModificar()
     {

@@ -19,13 +19,14 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     FRM_MenuPrincipal menu;
     Controlador_FRM_MenuPrincipal controladorMenu;
     FRM_MantenimientoLogin Login;
-
+public int eleccion=0;
    
     public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo)
     {
        this.fuenteInfo=fuenteInfo;
        this.menu=menu;
        Login=new FRM_MantenimientoLogin();
+       
     }
     public void actionPerformed(ActionEvent e)
     {
@@ -35,14 +36,17 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
             Login.setVisible(true);
             if(this.fuenteInfo.archivosPlanosSeleccionados())
             {
+                eleccion=1;
                 System.out.println("archivoPlanos");
             }
             if(this.fuenteInfo.basesDeDatosSeleccionados())
             {
+                eleccion=2;
                 System.out.println("BaseDeDatos");
             }
             if(this.fuenteInfo.xMLSeleccionados())
             {
+                eleccion=3;
                 System.out.println("XML");
             }
             
@@ -63,6 +67,8 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
            System.exit(0);
         }
     }
-    
-   
+   public int devolverEleccion()
+   {
+       return eleccion;
+   }
 }

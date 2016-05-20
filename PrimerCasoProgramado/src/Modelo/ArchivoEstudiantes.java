@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
    public class ArchivoEstudiantes {
@@ -53,7 +54,10 @@ import java.util.ArrayList;
              System.out.println("Error al ingresar información al archivo"+e);
          }
         }
-       
+       public void mostrarMensaje(String mensaje)
+       {
+           JOptionPane.showMessageDialog(null, mensaje);
+       }
         public boolean cargarArchivoEstudiantes()
                 {
                     boolean existe=false;
