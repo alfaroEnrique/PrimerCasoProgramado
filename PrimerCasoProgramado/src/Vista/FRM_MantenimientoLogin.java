@@ -5,10 +5,7 @@
  */
 package Vista;
 
-import Controlador.Controlador_FRM_FuenteInformacion;
 import Controlador.Controlador_FRM_MantenimientoLogin;
-import Controlador.Controlador_FRM_MantenimientoUsuarios;
-import javax.swing.JOptionPane;
 
 
 
@@ -16,20 +13,14 @@ import javax.swing.JOptionPane;
  *
  * @author Enrique
  */
-public class FRM_MantenimientoLogin extends javax.swing.JPanel {
+public class FRM_MantenimientoLogin extends javax.swing.JFrame {
 
-   Controlador_FRM_MantenimientoLogin mantenimientoLogin;
-   Controlador_FRM_FuenteInformacion fuente;
+    public Controlador_FRM_MantenimientoLogin mantenimientoLogin;
     
-    public FRM_MantenimientoLogin() 
-    {
+    public FRM_MantenimientoLogin() {
         initComponents();
-        gUI_BotonesLogin2.agregarEventos(mantenimientoLogin);
-        
-    }
-    public void mensaje(String mensaje)
-    {
-        JOptionPane.showMessageDialog(null,mensaje);
+        mantenimientoLogin=new Controlador_FRM_MantenimientoLogin(this);
+       gUI_BotonesLogin1.agregarEventos(mantenimientoLogin);
     }
 
     /**
@@ -41,37 +32,66 @@ public class FRM_MantenimientoLogin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gUI_InformacionLogin1 = new Vista.GUI_InformacionLogin();
-        gUI_BotonesLogin2 = new Vista.GUI_BotonesLogin();
+        jl_NombreUsuario = new javax.swing.JLabel();
+        jl_Contraseña = new javax.swing.JLabel();
+        jt_NombreUsuario = new javax.swing.JTextField();
+        jt_Contraseña = new javax.swing.JTextField();
+        gUI_BotonesLogin1 = new Vista.GUI_BotonesLogin();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jl_NombreUsuario.setText("Nombre de Usuario");
+
+        jl_Contraseña.setText("Contraseña");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(gUI_BotonesLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(gUI_InformacionLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(gUI_BotonesLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jl_Contraseña)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jt_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jl_NombreUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jt_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(gUI_InformacionLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(gUI_BotonesLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jl_NombreUsuario)
+                    .addComponent(jt_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_Contraseña))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gUI_BotonesLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vista.GUI_BotonesLogin gUI_BotonesLogin2;
-    private Vista.GUI_InformacionLogin gUI_InformacionLogin1;
+    private Vista.GUI_BotonesLogin gUI_BotonesLogin1;
+    private javax.swing.JLabel jl_Contraseña;
+    private javax.swing.JLabel jl_NombreUsuario;
+    private javax.swing.JTextField jt_Contraseña;
+    private javax.swing.JTextField jt_NombreUsuario;
     // End of variables declaration//GEN-END:variables
 }

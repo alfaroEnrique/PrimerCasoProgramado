@@ -7,30 +7,22 @@ package Vista;
 
 import Controlador.Controlador_FRM_MantenimientoLogin;
 
-
-
-
-
 /**
  *
  * @author Enrique
  */
 public class GUI_BotonesLogin extends javax.swing.JPanel {
 
-  
     Controlador_FRM_MantenimientoLogin mantenimientoLogin;
     
-    public GUI_BotonesLogin() 
-    {
+    public GUI_BotonesLogin() {
         initComponents();
     }
-    
-    
     public void agregarEventos(Controlador_FRM_MantenimientoLogin mantenimientoLogin)
     {
         this.mantenimientoLogin=mantenimientoLogin;
-        this.btn_Ingresar.addActionListener(mantenimientoLogin);
-        this.btn_Login.addActionListener(mantenimientoLogin); 
+        this.btn_Login.addActionListener(mantenimientoLogin);
+        this.btn_Registrar.addActionListener(mantenimientoLogin);
     }
 
     /**
@@ -42,39 +34,38 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_Ingresar = new javax.swing.JButton();
         btn_Login = new javax.swing.JButton();
-
-        btn_Ingresar.setText("Ingresar");
-        btn_Ingresar.setToolTipText("");
+        btn_Registrar = new javax.swing.JButton();
 
         btn_Login.setText("Login");
+
+        btn_Registrar.setText("Registrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(btn_Login)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(btn_Ingresar)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(btn_Registrar)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Ingresar)
-                    .addComponent(btn_Login))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Login)
+                    .addComponent(btn_Registrar))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Ingresar;
     private javax.swing.JButton btn_Login;
+    private javax.swing.JButton btn_Registrar;
     // End of variables declaration//GEN-END:variables
 }

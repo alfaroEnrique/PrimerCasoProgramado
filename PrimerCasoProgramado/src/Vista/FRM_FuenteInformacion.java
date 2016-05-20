@@ -19,7 +19,7 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     public FRM_FuenteInformacion() 
     {
         initComponents();
-        controlador_FRM_FuenteInformacion=new Controlador_FRM_FuenteInformacion(this);
+       controlador_FRM_FuenteInformacion=new Controlador_FRM_FuenteInformacion(this);
        gUI_BotonesInformacionFuente1.agregarEventos(controlador_FRM_FuenteInformacion);
     }
     

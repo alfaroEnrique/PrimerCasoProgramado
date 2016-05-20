@@ -6,7 +6,6 @@
 package Controlador;
 
 import Vista.FRM_FuenteInformacion;
-import Vista.FRM_MantenimientoLogin;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,20 +17,19 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     FRM_FuenteInformacion fuenteInfo;
     FRM_MenuPrincipal menu;
     Controlador_FRM_MenuPrincipal controladorMenu;
-    FRM_MantenimientoLogin login;
-    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo,FRM_MenuPrincipal menu)
+
+   
+    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo)
     {
        this.fuenteInfo=fuenteInfo;
        this.menu=menu;
-       login= new FRM_MantenimientoLogin();
-       login.setVisible(true);
     }
     public void actionPerformed(ActionEvent e)
     {
         
         if(e.getActionCommand().equals("Aceptar"))
         {
-            login.setVisible(true);
+      
             if(this.fuenteInfo.archivosPlanosSeleccionados())
             {
                 System.out.println("archivoPlanos");
@@ -51,7 +49,7 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
              ||this.fuenteInfo.xMLSeleccionados()&&this.fuenteInfo.basesDeDatosSeleccionados()||this.fuenteInfo.xMLSeleccionados()&&this.fuenteInfo.archivosPlanosSeleccionados()
              ||this.fuenteInfo.basesDeDatosSeleccionados()&&this.fuenteInfo.archivosPlanosSeleccionados())
             {
-                login.mensaje("Se pueden seleccionar solo una opcion a la vez");
+                System.out.println("Se pueden seleccionar solo una opcion a la vez");
             }
             
             fuenteInfo.setVisible(false);

@@ -25,7 +25,7 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     FRM_Matricula matricula;
     FRM_MantenimientoUsuario usurio;
     FRM_FuenteInformacion fuenteInfo;
-    FRM_MantenimientoLogin login;
+    FRM_MantenimientoLogin Login;
     
     
     public Controlador_FRM_MenuPrincipal()
@@ -35,8 +35,10 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
         usurio= new FRM_MantenimientoUsuario();
         fuenteInfo= new FRM_FuenteInformacion();
-        login=new FRM_MantenimientoLogin();
-        fuenteInfo.setVisible(true);
+        Login=new FRM_MantenimientoLogin();
+        //fuenteInfo.setVisible(true);
+        Login.setVisible(true);
+        
     }
     
     
