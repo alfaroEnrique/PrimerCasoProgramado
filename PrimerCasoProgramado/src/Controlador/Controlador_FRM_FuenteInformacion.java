@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.ArchivoUsuario;
 import Vista.FRM_FuenteInformacion;
 import Vista.FRM_MantenimientoLogin;
 import Vista.FRM_MenuPrincipal;
@@ -20,6 +21,7 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     Controlador_FRM_MenuPrincipal controladorMenu;
     FRM_MantenimientoLogin Login;
 public int eleccion=0;
+    ArchivoUsuario archivo;
    
     public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo)
     {
@@ -36,8 +38,12 @@ public int eleccion=0;
             Login.setVisible(true);
             if(this.fuenteInfo.archivosPlanosSeleccionados())
             {
-                eleccion=1;
-                System.out.println("archivoPlanos");
+                if(archivo.cargarArchivoUsuario())
+                {
+                    Login.setVisible(true);
+                    eleccion=1;
+                    System.out.println("archivoPlanos");
+                }
             }
             if(this.fuenteInfo.basesDeDatosSeleccionados())
             {
