@@ -6,6 +6,7 @@
 package Controlador;
 
 import Vista.FRM_FuenteInformacion;
+import Vista.FRM_MantenimientoLogin;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,35 +18,50 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     FRM_FuenteInformacion fuenteInfo;
     FRM_MenuPrincipal menu;
     Controlador_FRM_MenuPrincipal controladorMenu;
-    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo)
+    FRM_MantenimientoLogin login;
+    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo,FRM_MenuPrincipal menu)
     {
        this.fuenteInfo=fuenteInfo;
-       
+       this.menu=menu;
+       login= new FRM_MantenimientoLogin();
+       login.setVisible(true);
     }
     public void actionPerformed(ActionEvent e)
     {
-        fuenteInfo=new FRM_FuenteInformacion();
+        
         if(e.getActionCommand().equals("Aceptar"))
         {
-            if(this.fuenteInfo.archivosPlanosSeleccionado()==true)
-              {
-                    System.out.println("xD");
-              }
-            if(fuenteInfo.xMLSeleccionado()==true)
-             {
-            
-             }
-            if(fuenteInfo.basesDeDatosSeleccionado()==true)
+            login.setVisible(true);
+            if(this.fuenteInfo.archivosPlanosSeleccionados())
             {
-            
+                System.out.println("archivoPlanos");
             }
-            System.out.println("lol");
+            if(this.fuenteInfo.basesDeDatosSeleccionados())
+            {
+                System.out.println("BaseDeDatos");
+            }
+            if(this.fuenteInfo.xMLSeleccionados())
+            {
+                System.out.println("XML");
+            }
+            
+            //En el caso de que se selecciones dos o mas opciones;
+            
+            if(this.fuenteInfo.xMLSeleccionados()&&this.fuenteInfo.basesDeDatosSeleccionados()&&this.fuenteInfo.archivosPlanosSeleccionados()
+             ||this.fuenteInfo.xMLSeleccionados()&&this.fuenteInfo.basesDeDatosSeleccionados()||this.fuenteInfo.xMLSeleccionados()&&this.fuenteInfo.archivosPlanosSeleccionados()
+             ||this.fuenteInfo.basesDeDatosSeleccionados()&&this.fuenteInfo.archivosPlanosSeleccionados())
+            {
+                login.mensaje("Se pueden seleccionar solo una opcion a la vez");
+            }
+            
+            fuenteInfo.setVisible(false);
         }
+    
         if(e.getActionCommand().equals("Salir"))
         {
            System.exit(0);
         }
     }
     
-    
+   
 }

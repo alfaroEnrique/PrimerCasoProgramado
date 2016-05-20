@@ -30,7 +30,7 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
     {
         this.mantenimientoLogin=mantenimientoLogin;
         this.btn_Ingresar.addActionListener(mantenimientoLogin);
-        this.btn_Salir.addActionListener(mantenimientoLogin); 
+        this.btn_Login.addActionListener(mantenimientoLogin); 
     }
 
     /**
@@ -43,12 +43,12 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
     private void initComponents() {
 
         btn_Ingresar = new javax.swing.JButton();
-        btn_Salir = new javax.swing.JButton();
+        btn_Login = new javax.swing.JButton();
 
         btn_Ingresar.setText("Ingresar");
         btn_Ingresar.setToolTipText("");
 
-        btn_Salir.setText("Salir");
+        btn_Login.setText("Login");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,10 +56,10 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(btn_Login)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(btn_Ingresar)
-                .addGap(52, 52, 52)
-                .addComponent(btn_Salir)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,7 +67,7 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Ingresar)
-                    .addComponent(btn_Salir))
+                    .addComponent(btn_Login))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -75,6 +75,6 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Ingresar;
-    private javax.swing.JButton btn_Salir;
+    private javax.swing.JButton btn_Login;
     // End of variables declaration//GEN-END:variables
 }

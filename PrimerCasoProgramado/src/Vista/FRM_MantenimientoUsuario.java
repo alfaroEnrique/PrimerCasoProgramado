@@ -26,6 +26,7 @@ public class FRM_MantenimientoUsuario extends javax.swing.JFrame
         setVisible(false);
         controlador= new Controlador_FRM_MantenimientoUsuarios(this);
         gUI_Botones1.agregarEventos(controlador);
+        estadoInicial();
         archivo=new ArchivoUsuario();
     }
     public String[] devolverInformacion()

@@ -5,8 +5,10 @@
  */
 package Vista;
 
+import Controlador.Controlador_FRM_FuenteInformacion;
 import Controlador.Controlador_FRM_MantenimientoLogin;
 import Controlador.Controlador_FRM_MantenimientoUsuarios;
+import javax.swing.JOptionPane;
 
 
 
@@ -17,13 +19,17 @@ import Controlador.Controlador_FRM_MantenimientoUsuarios;
 public class FRM_MantenimientoLogin extends javax.swing.JPanel {
 
    Controlador_FRM_MantenimientoLogin mantenimientoLogin;
+   Controlador_FRM_FuenteInformacion fuente;
     
-    public FRM_MantenimientoLogin(Controlador_FRM_MantenimientoUsuarios ControladorUsuario) 
+    public FRM_MantenimientoLogin() 
     {
         initComponents();
-        this.mantenimientoLogin=mantenimientoLogin;
-        gUI_BotonesLogin1.agregarEventos(mantenimientoLogin);
+        gUI_BotonesLogin2.agregarEventos(mantenimientoLogin);
         
+    }
+    public void mensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
     }
 
     /**
@@ -35,35 +41,37 @@ public class FRM_MantenimientoLogin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gUI_BotonesLogin1 = new Vista.GUI_BotonesLogin();
         gUI_InformacionLogin1 = new Vista.GUI_InformacionLogin();
+        gUI_BotonesLogin2 = new Vista.GUI_BotonesLogin();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(gUI_InformacionLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(gUI_BotonesLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(gUI_BotonesLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(gUI_InformacionLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(gUI_InformacionLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(gUI_BotonesLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addComponent(gUI_BotonesLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vista.GUI_BotonesLogin gUI_BotonesLogin1;
+    private Vista.GUI_BotonesLogin gUI_BotonesLogin2;
     private Vista.GUI_InformacionLogin gUI_InformacionLogin1;
     // End of variables declaration//GEN-END:variables
 }

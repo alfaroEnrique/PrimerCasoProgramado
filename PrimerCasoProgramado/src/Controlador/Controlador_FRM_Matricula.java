@@ -40,8 +40,6 @@ public class Controlador_FRM_Matricula implements ActionListener{
         this.frm_Matricula=frm_Matricula;
         metodosMatricula=new MetodosMatricula();
         archivo=new ArchivoMatricula();
-        fuenteInfo=new FRM_FuenteInformacion();
-        fuenteInfo.setVisible(true);
         frm_Matricula.numeroCodigo(metodosMatricula.devolverCodigo());
         
         if(archivo.cargarArchivoMatricula()){

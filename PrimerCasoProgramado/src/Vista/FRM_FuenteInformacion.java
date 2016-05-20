@@ -25,21 +25,18 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     
 
     
-    public boolean archivosPlanosSeleccionado()
+    public boolean archivosPlanosSeleccionados()
     {
         return this.jrb_ArchivosPlanos.isSelected();
     }
-    
-    public boolean basesDeDatosSeleccionado()
+    public boolean basesDeDatosSeleccionados()
     {
-        return this.jrb_BasesDeDatos.isSelected();
+        return this.jrb_BasesDatos.isSelected();
     }
-    
-    public boolean xMLSeleccionado()
+    public boolean xMLSeleccionados()
     {
         return this.jrb_XML.isSelected();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,37 +46,23 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_Grupo = new javax.swing.ButtonGroup();
-        jl_Bienvenido = new javax.swing.JLabel();
-        jl_Instruccion = new javax.swing.JLabel();
-        jrb_ArchivosPlanos = new javax.swing.JRadioButton();
-        jrb_BasesDeDatos = new javax.swing.JRadioButton();
-        jrb_XML = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         gUI_BotonesInformacionFuente1 = new Vista.GUI_BotonesInformacionFuente();
+        jrb_ArchivosPlanos = new javax.swing.JRadioButton();
+        jrb_BasesDatos = new javax.swing.JRadioButton();
+        jrb_XML = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                formComponentHidden(evt);
-            }
-        });
 
-        jl_Bienvenido.setText("¡Bienvenido!");
+        jLabel1.setText("¡Bienvenido!");
 
-        jl_Instruccion.setText("Por favor elija la fuente de informacion que va a utilizar");
+        jLabel2.setText("Por favor, elija la fuente de informacion con la que desea trabajar");
 
-        btn_Grupo.add(jrb_ArchivosPlanos);
         jrb_ArchivosPlanos.setText("Archivos Planos");
-        jrb_ArchivosPlanos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrb_ArchivosPlanosActionPerformed(evt);
-            }
-        });
 
-        btn_Grupo.add(jrb_BasesDeDatos);
-        jrb_BasesDeDatos.setText("Bases de Datos");
+        jrb_BasesDatos.setText("Bases de Datos");
 
-        btn_Grupo.add(jrb_XML);
         jrb_XML.setText("XML");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,35 +73,41 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jrb_ArchivosPlanos)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jrb_BasesDeDatos)
-                            .addComponent(jl_Bienvenido)
-                            .addComponent(jl_Instruccion))
-                        .addContainerGap(34, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jrb_BasesDatos)
+                                    .addComponent(jrb_XML))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(gUI_BotonesInformacionFuente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jrb_XML)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(gUI_BotonesInformacionFuente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                        .addComponent(jrb_ArchivosPlanos)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jl_Bienvenido)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jl_Instruccion)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jrb_ArchivosPlanos)
-                .addGap(18, 18, 18)
-                .addComponent(jrb_BasesDeDatos)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jrb_XML)
-                    .addComponent(gUI_BotonesInformacionFuente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(gUI_BotonesInformacionFuente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jrb_BasesDatos)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrb_XML)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -139,12 +128,11 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup btn_Grupo;
     private Vista.GUI_BotonesInformacionFuente gUI_BotonesInformacionFuente1;
-    private javax.swing.JLabel jl_Bienvenido;
-    private javax.swing.JLabel jl_Instruccion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JRadioButton jrb_ArchivosPlanos;
-    private javax.swing.JRadioButton jrb_BasesDeDatos;
+    private javax.swing.JRadioButton jrb_BasesDatos;
     private javax.swing.JRadioButton jrb_XML;
     // End of variables declaration//GEN-END:variables
 }
