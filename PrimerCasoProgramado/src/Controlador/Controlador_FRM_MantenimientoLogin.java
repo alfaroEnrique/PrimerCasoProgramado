@@ -18,14 +18,14 @@ import java.awt.event.ActionListener;
 public class Controlador_FRM_MantenimientoLogin implements ActionListener
 {
     FRM_MantenimientoLogin mantenimientoLogin;
-    FRM_MenuPrincipal menu;
-    Controlador_FRM_MenuPrincipal controladorMenu;
+    FRM_FuenteInformacion fuenteInformacion;
+    Controlador_FRM_FuenteInformacion Controlador;
 
     
     public Controlador_FRM_MantenimientoLogin(FRM_MantenimientoLogin mantenimientoLogin)
     {
        this.mantenimientoLogin=mantenimientoLogin;
-       this.menu=menu;
+       this.fuenteInformacion=fuenteInformacion;
     }
     public void actionPerformed(ActionEvent e)
     {

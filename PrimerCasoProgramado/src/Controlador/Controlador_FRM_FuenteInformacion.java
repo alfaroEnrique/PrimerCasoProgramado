@@ -6,6 +6,7 @@
 package Controlador;
 
 import Vista.FRM_FuenteInformacion;
+import Vista.FRM_MantenimientoLogin;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,19 +18,21 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     FRM_FuenteInformacion fuenteInfo;
     FRM_MenuPrincipal menu;
     Controlador_FRM_MenuPrincipal controladorMenu;
+    FRM_MantenimientoLogin Login;
 
    
     public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo)
     {
        this.fuenteInfo=fuenteInfo;
        this.menu=menu;
+       Login=new FRM_MantenimientoLogin();
     }
     public void actionPerformed(ActionEvent e)
     {
         
         if(e.getActionCommand().equals("Aceptar"))
         {
-      
+            Login.setVisible(true);
             if(this.fuenteInfo.archivosPlanosSeleccionados())
             {
                 System.out.println("archivoPlanos");

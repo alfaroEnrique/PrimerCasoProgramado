@@ -36,8 +36,8 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         usurio= new FRM_MantenimientoUsuario();
         fuenteInfo= new FRM_FuenteInformacion();
         Login=new FRM_MantenimientoLogin();
-        //fuenteInfo.setVisible(true);
-        Login.setVisible(true);
+        fuenteInfo.setVisible(true);
+        
         
     }
     
