@@ -20,7 +20,7 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     FRM_MenuPrincipal menu;
     Controlador_FRM_MenuPrincipal controladorMenu;
     FRM_MantenimientoLogin Login;
-public int eleccion=0;
+    public int eleccion=0;
     ArchivoUsuario archivo;
     
    

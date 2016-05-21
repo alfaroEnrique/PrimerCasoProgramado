@@ -25,9 +25,10 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     Controlador_FRM_FuenteInformacion fuente;
     MetodosXML_Estudiantes metodosXML;
     FRM_MantenimientoEstudiantes ventana;
-    
+     public int seleccion;
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
     {
+       
         metodosXML=new MetodosXML_Estudiantes(ventana);
         this.mantenimientoEstudiantes=mantenimientoEstudiantes;
         metodos = new MetodosEstudiantes();
@@ -44,14 +45,16 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     
     public void actionPerformed(ActionEvent e)
     {
+        seleccion=fuente.devolverEleccion();
+        System.out.println(seleccion);
         if(e.getActionCommand().equals("Consultar") || e.getActionCommand().equals("ConsultaRapida"))
         {
-         //   if(this.fuente.devolverEleccion()==1)
-      //      {
-         //       buscarArchivos();
-        //    }
-        //    if(this.fuente.devolverEleccion()==2)
-         //   {
+            if(this.fuente.devolverEleccion()==1)
+            {
+                buscarArchivos();
+            }
+            if(this.fuente.devolverEleccion()==2)
+            {
                 if(metodosXML.consultarInformacionDelXml(ventana.devolverCedula()))
                 {
                     ventana.mostrarMensaje("No se encontró información con la cédula: "+ventana.devolverCedula());
@@ -65,59 +68,59 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                     ventana.mostrarMensaje("Información encontrada con la cédula : "+ventana.devolverCedula());
         }   
         ventana.deshabilitarCedula();
-        //    }
+            }
         }
        
         if(e.getActionCommand().equals("Agregar"))
         {
-      //      if(this.fuente.devolverEleccion()==1)
-      //      {
-      //      metodos.agregarEstudiante(mantenimientoEstudiantes.devolverInformacion());
-      //      metodos.mostrarInformacion();     
-      //      metodos.mensaje("El estudiante ha sido agregado exitosamente");
-      //      mantenimientoEstudiantes.posicionInicial();
-         //   }
-      //      if(this.fuente.devolverEleccion()==2)
-        //    {
+            if(this.fuente.devolverEleccion()==1)
+            {
+            metodos.agregarEstudiante(mantenimientoEstudiantes.devolverInformacion());
+            metodos.mostrarInformacion();     
+            metodos.mensaje("El estudiante ha sido agregado exitosamente");
+            mantenimientoEstudiantes.posicionInicial();
+            }
+            if(this.fuente.devolverEleccion()==2)
+            {
               metodosXML.guardarEnXML(ventana.devolverInformacion());
             ventana.mostrarMensaje("Información agregada al archivo XML de forma correcta.");
             ventana.limpiarInterfaz();
             ventana.estadoInicial();
-       //     }
+            }
         }
         if(e.getActionCommand().equals("Modificar"))
         {
-          //  if(this.fuente.devolverEleccion()==1)
-         //   {
-       //    metodos.modificarEstudiante(mantenimientoEstudiantes.devolverInformacion());
-      //     metodos.mensaje("Los datos han sido modificados exitosamente");
-      //     mantenimientoEstudiantes.desabilirAgregar();
-       //    mantenimientoEstudiantes.posicionInicial();
-        //    }
-           // if(this.fuente.devolverEleccion()==2)
-           // {
+            if(this.fuente.devolverEleccion()==1)
+            {
+           metodos.modificarEstudiante(mantenimientoEstudiantes.devolverInformacion());
+           metodos.mensaje("Los datos han sido modificados exitosamente");
+           mantenimientoEstudiantes.desabilirAgregar();
+           mantenimientoEstudiantes.posicionInicial();
+            }
+            if(this.fuente.devolverEleccion()==2)
+            {
                 metodosXML.modificarInformacionDelXml(ventana.devolverInformacion());
             ventana.mostrarMensaje("Información modificada en el archivo XML de forma correcta.");
             ventana.limpiarInterfaz();
             ventana.estadoInicial();
-           // }
+            }
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
-           // if(this.fuente.devolverEleccion()==1)
-            //{
-          //  metodos.eliminarEstudiante(mantenimientoEstudiantes.devolverInformacion());
-         //   metodos.mensaje("El estudiante ha sido eliminado exitosamente");
-         //   mantenimientoEstudiantes.desabilirAgregar();
-           // mantenimientoEstudiantes.posicionInicial();
-          //  }
-          //  if(this.fuente.devolverEleccion()==2)
-          //  {
+            if(this.fuente.devolverEleccion()==1)
+            {
+            metodos.eliminarEstudiante(mantenimientoEstudiantes.devolverInformacion());
+            metodos.mensaje("El estudiante ha sido eliminado exitosamente");
+            mantenimientoEstudiantes.desabilirAgregar();
+            mantenimientoEstudiantes.posicionInicial();
+            }
+            if(this.fuente.devolverEleccion()==2)
+            {
                 metodosXML.eliminarInformacionDelXml(ventana.devolverCedula());
             ventana.mostrarMensaje("Información eliminada del archivo XML de forma correcta.");
             ventana.limpiarInterfaz();
             ventana.estadoInicial();
-          //  }
+            }
         }
     
     }
