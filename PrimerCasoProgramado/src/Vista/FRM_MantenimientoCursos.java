@@ -39,6 +39,10 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     {
         this.gUI_InformacionCursos1.mostrarInformacion(arreglo);
     }
+    public void deshabilitarSigla()
+    {
+        this.gUI_InformacionCursos1.deshabilitarSigla();
+    }
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null, mensaje);
@@ -47,6 +51,15 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     {
         this.gUI_Botones1.estadoInicial();
         this.gUI_InformacionCursos1.pantallaInicial();
+    }
+    public void habilitarOpciones()
+    {
+        this.gUI_Botones1.habilitarOpciones();
+        this.gUI_InformacionCursos1.habilitarOpciones();
+    }
+    public void limpiarInterfaz()
+    {
+        this.gUI_InformacionCursos1.limpiarInterfaz();
     }
     public void limpiarCampos()
     {

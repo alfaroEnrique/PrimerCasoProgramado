@@ -1,23 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Modelo;
+package modelo;
 
 import Vista.FRM_MantenimientoCursos;
-import Vista.FRM_MantenimientoEstudiantes;
+import java.awt.List;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -28,14 +24,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
-
-/**
- *
- * @author altna
- */
-public class MetodosXML_Cursos {
-    
-    FRM_MantenimientoCursos curso;
+import org.xml.sax.SAXException;
+ 
+public class MetodosXML_Usuarios 
+{
+    FRM_MantenimientoCursos ventana;
     DocumentBuilderFactory factory;
     DocumentBuilder builder;
     DOMImplementation implementation;
@@ -49,22 +42,20 @@ public class MetodosXML_Cursos {
     Result console;
     Transformer transformer;
     String nombreArchivo;
-    String mensaje;
     
-    public MetodosXML_Cursos(FRM_MantenimientoCursos curso) 
+    public MetodosXML_Usuarios(FRM_MantenimientoCursos ventana) 
     {
-        this.curso=curso;  
-        nombreArchivo="Curso";
+        this.ventana=ventana;  
+        nombreArchivo="Estudiante";
         
         if(cargarXML())
         {
-            JOptionPane.showMessageDialog(null,"Ya existe un archivo XML creado, ya fue cargado y puede proceder a utilizarlo");
+            ventana.mostrarMensaje("Ya existe un archivo XML creado, ya fue cargado y puede proceder a utilizarlo");
         }
         else
         {
             crearXML();
-            JOptionPane.showMessageDialog(null,"No existía un archivo XML creado, ya fue creado y puede proceder a utilizarlo");
-                    
+            ventana.mostrarMensaje("No existía un archivo XML creado, ya fue creado y puede proceder a utilizarlo");
         }
         
         arregloInformacion=new String[4];
@@ -105,7 +96,7 @@ public class MetodosXML_Cursos {
             document.getDocumentElement().normalize();
             cargo=true;
             
-            NodeList nList = document.getElementsByTagName("Curso");
+            NodeList nList = document.getElementsByTagName("Usuario");
             Node nNode = nList.item(0);
             raiz = (Element) nNode;
                 
@@ -118,17 +109,17 @@ public class MetodosXML_Cursos {
     {
         try{
             
-            raiz = document.createElement("Curso");
-            principal = document.createElement("Curso");
+            raiz = document.createElement("Usuario");
+            principal = document.createElement("Usuario");
             document.getDocumentElement().appendChild(raiz);
             
-            Element valor1 = document.createElement("sigla");
+            Element valor1 = document.createElement("nombreCompleto");
             Text text = document.createTextNode(arregloInformacion[0]);
-            Element valor2 = document.createElement("nombre");
+            Element valor2 = document.createElement("nombreUsuario");
             Text text2 = document.createTextNode(arregloInformacion[1]);
-            Element valor3 = document.createElement("creditos");
+            Element valor3 = document.createElement("contraseña");
             Text text3 = document.createTextNode(arregloInformacion[2]);
-            Element valor4 = document.createElement("horario");
+            Element valor4 = document.createElement("tipo");
             Text text4 = document.createTextNode(arregloInformacion[3]);
             
             raiz.appendChild(valor1);
@@ -137,6 +128,8 @@ public class MetodosXML_Cursos {
             valor2.appendChild(text2);
             raiz.appendChild(valor3);
             valor3.appendChild(text3);
+            raiz.appendChild(valor4);
+            valor4.appendChild(text4);
             
             source = new DOMSource(document);
             result = new StreamResult(new java.io.File(nombreArchivo+".xml"));
@@ -166,19 +159,19 @@ public class MetodosXML_Cursos {
             transformer.transform(source, result);
             System.out.println("Archivo XML creado con el nombre: "+nombreArchivo);
         } catch (ParserConfigurationException ex) {
-            Logger.getLogger(MetodosXML_Cursos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosXML_Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         
         } catch (TransformerException ex) {
-            Logger.getLogger(MetodosXML_Cursos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosXML_Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-    public boolean consultarInformacionDelXml(String sigla)
+    public boolean consultarInformacionDelXml(String nombreUsuario)
     { 
          Element raiz = document.getDocumentElement();
-         NodeList listaDeItems = raiz.getElementsByTagName("Curso");
+         NodeList listaDeItems = raiz.getElementsByTagName("Usuario");
          Node tag=null,datoContenido=null;
 
-         boolean itemEncontrado=false,tituloSigla=false;
+         boolean itemEncontrado=false,titulonombreUsuario=false;
          int contador=0;
 
          for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -190,7 +183,7 @@ public class MetodosXML_Cursos {
                  tag = datosItem.item(contadorTags); 
                  datoContenido = tag.getFirstChild();
 
-                 if(tag.getNodeName().equals("sigla") && datoContenido.getNodeValue().equals(""+sigla) )
+                 if(tag.getNodeName().equals("nombreUsuario") && datoContenido.getNodeValue().equals(""+nombreUsuario) )
                  {
                     itemEncontrado=true;     
                  }
@@ -211,10 +204,10 @@ public class MetodosXML_Cursos {
     public void modificarInformacionDelXml(String informacion[])
     { 
          Element raiz = document.getDocumentElement();
-         NodeList listaDeItems = raiz.getElementsByTagName("Curso");
+         NodeList listaDeItems = raiz.getElementsByTagName("nombreUsuario");
          Node tag=null,datoContenido=null;
          String arregloInformacion[]=new String[4];
-         boolean itemEncontrado=false,tituloSigla=false;
+         boolean itemEncontrado=false,titulonombreUsuario=false;
          int contador=0;
          try
          {
@@ -226,7 +219,7 @@ public class MetodosXML_Cursos {
                 {   
                     tag = datosItem.item(contadorTags); 
                     datoContenido = tag.getFirstChild();
-                    if(tag.getNodeName().equals("sigla") && datoContenido.getNodeValue().equals(""+informacion[0]) )
+                    if(tag.getNodeName().equals("nombreUsuario") && datoContenido.getNodeValue().equals(""+informacion[0]) )
                     {   
                        itemEncontrado=true;     
                     }
@@ -249,13 +242,13 @@ public class MetodosXML_Cursos {
             System.err.println("Error al modificar: " + e);
         }
     }
-    public void eliminarInformacionDelXml(String sigla)
+    public void eliminarInformacionDelXml(String nombreUsuario)
     { 
          Element raiz = document.getDocumentElement();
-         NodeList listaDeItems = raiz.getElementsByTagName("Curso");
+         NodeList listaDeItems = raiz.getElementsByTagName("nombreUsuario");
          Node tag=null,datoContenido=null;
-         String arregloInformacion[]=new String[4];
-         boolean itemEncontrado=false,tituloSigla=false;
+         String arregloInformacion[]=new String[3];
+         boolean itemEncontrado=false,tituloCedula=false;  
 
          try{
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -266,7 +259,7 @@ public class MetodosXML_Cursos {
                 {
                     tag = datosItem.item(contadorTags); 
                     datoContenido = tag.getFirstChild();
-                    if(tag.getNodeName().equals("sigla") && datoContenido.getNodeValue().equals(""+sigla) )
+                    if(tag.getNodeName().equals("nombreUsuario") && datoContenido.getNodeValue().equals(""+nombreUsuario) )
                     {
                        itemEncontrado=true;
                        raiz.removeChild(item);

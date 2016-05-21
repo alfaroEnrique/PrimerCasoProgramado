@@ -40,10 +40,11 @@ public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
     }
     public void mostrarInformacion(String arreglo[])
     {
-        this.jt_NombreCompleto.setText(arreglo[0]);
+        this.jt_NombreCompleto.setText(arreglo[0]);        
         this.jt_Direccion.setText(arreglo[1]);
         
     }
+
      public void pantallaInicial()
     {
      this.jt_NombreCompleto.setEnabled(false);

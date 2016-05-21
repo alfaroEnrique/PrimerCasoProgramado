@@ -44,11 +44,27 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
     {
         return this.jt_Sigla.getText();
     }
+    public void limpiarInterfaz()
+    {
+        this.jt_Horario.setText("");
+        this.jt_Nombre.setText("");
+        this.jt_Sigla.setText("");
+    }
     public void mostrarInformacion(String arreglo[])
     {
         this.jt_Nombre.setText(arreglo[0]);
         this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[1]));
         this.jt_Horario.setText(arreglo[2]);
+    }
+    public void habilitarOpciones()
+    {
+        this.jt_Horario.setEnabled(true);
+        this.jt_Nombre.setEnabled(true);
+        //this.btn_ConsultaRapida.setEnabled(false);
+    }
+    public void deshabilitarSigla()
+    {
+        this.jt_Sigla.setEnabled(false);
     }
      public void pantallaInicial()
     {
