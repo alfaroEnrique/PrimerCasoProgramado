@@ -60,6 +60,22 @@ public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
       this.jt_NombreCompleto.setEnabled(true);
       this.jt_Direccion.setEnabled(true);
     }
+    public void limpiarInterfaz()
+    {
+        this.jt_Cedula.setText("");
+        this.jt_NombreCompleto.setText("");
+        this.jt_Direccion.setText("");
+    }
+    public void deshabilitarCedula()
+    {
+        this.jt_Cedula.setEnabled(false);
+        this.btn_ConsultaRapida.setEnabled(false);
+    }
+    public void habilitarOpciones()
+    {
+        this.jt_NombreCompleto.setEnabled(true);
+        this.jt_Direccion.setEnabled(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,7 +160,7 @@ public class GUI_InformacionEstudiantes extends javax.swing.JPanel {
 private void btn_ConsultaRapida(java.awt.event.KeyEvent evt) {                                     
         if(evt.getKeyCode()==10)
         {
-            controlador.buscar();
+            controlador.buscarArchivos();
         }
     }           
 

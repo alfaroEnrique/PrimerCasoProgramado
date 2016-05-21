@@ -10,6 +10,7 @@ import Modelo.MetodosEstudiantes;
 import Vista.FRM_MantenimientoEstudiantes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.MetodosXML_Estudiantes;
 
 /**
  *
@@ -22,14 +23,16 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     FRM_MantenimientoEstudiantes mantenimientoEstudiantes;
     ArchivoEstudiantes archivo;
     Controlador_FRM_FuenteInformacion fuente;
+    MetodosXML_Estudiantes metodosXML;
+    FRM_MantenimientoEstudiantes ventana;
     
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
     {
+        metodosXML=new MetodosXML_Estudiantes(ventana);
         this.mantenimientoEstudiantes=mantenimientoEstudiantes;
         metodos = new MetodosEstudiantes();
         mantenimientoEstudiantes.estadoInicial();
         archivo=new ArchivoEstudiantes();
-        
         if(archivo.cargarArchivoEstudiantes()){
      metodos.setArray(archivo.devolverInformacionDeEstudiantes());
      }
@@ -43,7 +46,14 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     {
         if(e.getActionCommand().equals("Consultar") || e.getActionCommand().equals("ConsultaRapida"))
         {
-            buscar();
+            if(this.fuente.devolverEleccion()==1)
+            {
+                buscarArchivos();
+            }
+            if(this.fuente.devolverEleccion()==2)
+            {
+                
+            }
         }
        
         if(e.getActionCommand().equals("Agregar"))
@@ -55,6 +65,13 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             metodos.mensaje("El estudiante ha sido agregado exitosamente");
             mantenimientoEstudiantes.posicionInicial();
             }
+            if(this.fuente.devolverEleccion()==2)
+            {
+              metodosXML.guardarEnXML(ventana.devolverInformacion());
+            ventana.mostrarMensaje("Información agregada al archivo XML de forma correcta.");
+            ventana.limpiarInterfaz();
+            ventana.estadoInicial();
+            }
         }
         if(e.getActionCommand().equals("Modificar"))
         {
@@ -65,6 +82,13 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
            mantenimientoEstudiantes.desabilirAgregar();
            mantenimientoEstudiantes.posicionInicial();
             }
+            if(this.fuente.devolverEleccion()==2)
+            {
+                metodosXML.modificarInformacionDelXml(ventana.devolverInformacion());
+            ventana.mostrarMensaje("Información modificada en el archivo XML de forma correcta.");
+            ventana.limpiarInterfaz();
+            ventana.estadoInicial();
+            }
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
@@ -74,6 +98,13 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             metodos.mensaje("El estudiante ha sido eliminado exitosamente");
             mantenimientoEstudiantes.desabilirAgregar();
             mantenimientoEstudiantes.posicionInicial();
+            }
+            if(this.fuente.devolverEleccion()==2)
+            {
+                metodosXML.eliminarInformacionDelXml(ventana.devolverCedula());
+            ventana.mostrarMensaje("Información eliminada del archivo XML de forma correcta.");
+            ventana.limpiarInterfaz();
+            ventana.estadoInicial();
             }
         }
     
@@ -90,7 +121,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         }
         
     }
-    public void buscar()
+    public void buscarArchivos()
     {
             if(metodos.consultarEstudiante(mantenimientoEstudiantes.devolverCedula()))
             {
@@ -104,7 +135,20 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                 mantenimientoEstudiantes.habilirAgregar();
             }
     }
-    
-   
-    
+    public void buscarXML()
+    {
+         if(metodosXML.consultarInformacionDelXml(ventana.devolverCedula()))
+        {
+            ventana.mostrarInformacion(metodos.getArregloInformacion());
+            ventana.habilitarOpciones();
+            
+            ventana.mostrarMensaje("Información encontrada con la cédula : "+ventana.devolverCedula());
+        }
+        else
+        {
+            ventana.mostrarMensaje("No se encontró información con la cédula: "+ventana.devolverCedula());
+            ventana.habilirAgregar();
+        }   
+        ventana.deshabilitarCedula();
+    }
 }

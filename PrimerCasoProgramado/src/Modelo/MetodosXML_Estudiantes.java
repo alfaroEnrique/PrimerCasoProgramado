@@ -1,21 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Modelo;
+package modelo;
 
 import Vista.FRM_MantenimientoEstudiantes;
+import java.awt.List;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -26,15 +25,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
-
-/**
- *
- * @author altna
- */
-public class MetodosXML_Estudiantes {
-
+import org.xml.sax.SAXException;
  
-public class Metodos_XML 
+public class MetodosXML_Estudiantes
 {
     FRM_MantenimientoEstudiantes ventana;
     DocumentBuilderFactory factory;
@@ -50,22 +43,20 @@ public class Metodos_XML
     Result console;
     Transformer transformer;
     String nombreArchivo;
-    String mensaje;
     
-    public Metodos_XML(FRM_MantenimientoEstudiantes ventana) 
+    public MetodosXML_Estudiantes(FRM_MantenimientoEstudiantes ventana) 
     {
         this.ventana=ventana;  
         nombreArchivo="Estudiante";
         
         if(cargarXML())
         {
-            mensaje="Ya existe un archivo XML creado, ya fue cargado y puede proceder a utilizarlo";
-            ventana.mostrarMensaje(mensaje);
+            JOptionPane.showMessageDialog(null,"Ya existe un archivo XML creado, ya fue cargado y puede proceder a utilizarlo");
         }
         else
         {
             crearXML();
-            ventana.mostrarMensaje("No existía un archivo XML creado, ya fue creado y puede proceder a utilizarlo");
+            JOptionPane.showMessageDialog(null,"No existía un archivo XML creado, ya fue creado y puede proceder a utilizarlo");
         }
         
         arregloInformacion=new String[3];
@@ -165,10 +156,10 @@ public class Metodos_XML
             transformer.transform(source, result);
             System.out.println("Archivo XML creado con el nombre: "+nombreArchivo);
         } catch (ParserConfigurationException ex) {
-            Logger.getLogger(Metodos_XML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosXML_Estudiantes.class.getName()).log(Level.SEVERE, null, ex);
         
         } catch (TransformerException ex) {
-            Logger.getLogger(Metodos_XML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosXML_Estudiantes.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
     public boolean consultarInformacionDelXml(String cedula)
@@ -284,5 +275,4 @@ public class Metodos_XML
             System.err.println("Error al eliminar: " + e);
         }
     }
-}
 }

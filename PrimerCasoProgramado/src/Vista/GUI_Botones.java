@@ -84,7 +84,13 @@ public class GUI_Botones extends javax.swing.JPanel {
     {
         this.btn_Agregar.setEnabled(false);
     }
-           
+     public void habilitarOpciones()
+    {
+        this.btn_Modificar.setEnabled(true);
+        this.btn_Eliminar.setEnabled(true);
+        this.btn_Agregar.setEnabled(false);
+        this.btn_Consultar.setEnabled(false);
+    }      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

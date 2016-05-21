@@ -54,6 +54,11 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
     {
       this.gUI_InformacionEstudiantes1.limpiarCampos();
     }
+    public void habilitarOpciones()
+    {
+        this.gUI_Botones1.habilitarOpciones();
+        this.gUI_InformacionEstudiantes1.habilitarOpciones();
+    }
     public void habilirAgregar()
     {
       this.gUI_Botones1.habilitarAgregar();
@@ -62,6 +67,14 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
     public void mostrarMensaje(String mensaje)
     {
         JOptionPane.showMessageDialog(null, mensaje);
+    }
+    public void limpiarInterfaz()
+    {
+        this.gUI_InformacionEstudiantes1.limpiarInterfaz();
+    }
+    public void deshabilitarCedula()
+    {
+        this.gUI_InformacionEstudiantes1.deshabilitarCedula();
     }
     public void habilirModificar()
     {
