@@ -35,7 +35,6 @@ public class Controlador_FRM_MantenimientoLogin implements ActionListener
             menu=new FRM_MenuPrincipal();
             menu.setVisible(true);
             mantenimientoLogin.setVisible(false);
-            fuenteInformacion.setVisible(false);
         }
         if(e.getActionCommand().equals("Registrar"))
         {
