@@ -22,10 +22,11 @@ public class Controlador_FRM_MantenimientoLogin implements ActionListener
     Controlador_FRM_FuenteInformacion Controlador;
    FRM_MenuPrincipal menu;
     
-    public Controlador_FRM_MantenimientoLogin(FRM_MantenimientoLogin mantenimientoLogin)
+    public Controlador_FRM_MantenimientoLogin(FRM_MantenimientoLogin mantenimientoLogin,FRM_FuenteInformacion fuenteInformacion)
     {
        this.mantenimientoLogin=mantenimientoLogin;
        this.fuenteInformacion=fuenteInformacion;
+
     }
     public void actionPerformed(ActionEvent e)
     {
@@ -34,6 +35,7 @@ public class Controlador_FRM_MantenimientoLogin implements ActionListener
             menu=new FRM_MenuPrincipal();
             menu.setVisible(true);
             mantenimientoLogin.setVisible(false);
+            fuenteInformacion.setVisible(false);
         }
         if(e.getActionCommand().equals("Registrar"))
         {

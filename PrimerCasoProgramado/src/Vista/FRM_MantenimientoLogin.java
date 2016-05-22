@@ -16,10 +16,11 @@ import Controlador.Controlador_FRM_MantenimientoLogin;
 public class FRM_MantenimientoLogin extends javax.swing.JFrame {
 
     public Controlador_FRM_MantenimientoLogin mantenimientoLogin;
+    FRM_FuenteInformacion fuenteInfo;
     
-    public FRM_MantenimientoLogin() {
+    public FRM_MantenimientoLogin(FRM_MenuPrincipal menu) {
         initComponents();
-        mantenimientoLogin=new Controlador_FRM_MantenimientoLogin(this);
+        mantenimientoLogin=new Controlador_FRM_MantenimientoLogin(this,fuenteInfo);
        gUI_BotonesLogin1.agregarEventos(mantenimientoLogin);
     }
 

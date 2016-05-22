@@ -18,13 +18,13 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     public Controlador_FRM_FuenteInformacion controlador_FRM_FuenteInformacion;
     FRM_MenuPrincipal menu;
     
-    public FRM_FuenteInformacion(Controlador_FRM_MenuPrincipal controlador) 
+    public FRM_FuenteInformacion(FRM_MenuPrincipal frm_MenuPrincipal) 
     {
         initComponents();
-       controlador_FRM_FuenteInformacion=new Controlador_FRM_FuenteInformacion(this);
+       controlador_FRM_FuenteInformacion=new Controlador_FRM_FuenteInformacion(this,frm_MenuPrincipal);
        gUI_BotonesInformacionFuente1.agregarEventos(controlador_FRM_FuenteInformacion);
-
-           setVisible(true);
+       setLocation(400,300);
+               setVisible(true);
        
     }
     

@@ -24,10 +24,11 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener {
     ArchivoUsuario archivo;
     
    
-    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo)
+    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion fuenteInfo, FRM_MenuPrincipal frm_MenuPrincipal)
     {
        this.fuenteInfo=fuenteInfo;
-       Login=new FRM_MantenimientoLogin();
+       Login=new FRM_MantenimientoLogin(frm_MenuPrincipal);
+       
        //visible();
     }
     public void actionPerformed(ActionEvent e)

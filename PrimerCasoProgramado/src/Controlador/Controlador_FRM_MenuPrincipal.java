@@ -30,17 +30,16 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     FRM_MenuPrincipal menu;
     
     
-    public Controlador_FRM_MenuPrincipal()
+    public Controlador_FRM_MenuPrincipal(FRM_MenuPrincipal frm_MenuPrincipal)
     {
         mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
         mantenimientoCursos=new FRM_MantenimientoCursos();
         matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
         usurio= new FRM_MantenimientoUsuario();
-        fuenteInfo= new FRM_FuenteInformacion(this);
-        Login=new FRM_MantenimientoLogin();
+        Login=new FRM_MantenimientoLogin(frm_MenuPrincipal);
         //visible();
         //fuenteInfo.setVisible(true);
-        
+        fuenteInfo=new FRM_FuenteInformacion(frm_MenuPrincipal);
     }
     
     public void actionPerformed(ActionEvent e)
