@@ -51,6 +51,7 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         gUI_BotonesInformacionFuente1 = new Vista.GUI_BotonesInformacionFuente();
@@ -62,10 +63,18 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
 
         jLabel2.setText("Por favor, elija la fuente de informacion con la que desea trabajar");
 
+        buttonGroup1.add(jrb_ArchivosPlanos);
         jrb_ArchivosPlanos.setText("Archivos Planos");
 
+        buttonGroup1.add(jrb_BasesDatos);
         jrb_BasesDatos.setText("Bases de Datos");
+        jrb_BasesDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb_BasesDatosActionPerformed(evt);
+            }
+        });
 
+        buttonGroup1.add(jrb_XML);
         jrb_XML.setText("XML");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -100,14 +109,14 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jrb_ArchivosPlanos)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(78, 78, 78)
                         .addComponent(gUI_BotonesInformacionFuente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(31, 31, 31)
+                        .addComponent(jrb_ArchivosPlanos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jrb_BasesDatos)
                         .addGap(18, 18, 18)
                         .addComponent(jrb_XML)))
@@ -125,12 +134,17 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jrb_ArchivosPlanosActionPerformed
 
+    private void jrb_BasesDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_BasesDatosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrb_BasesDatosActionPerformed
+
     /**
      * @param args the command line arguments
      */
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private Vista.GUI_BotonesInformacionFuente gUI_BotonesInformacionFuente1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
